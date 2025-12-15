@@ -359,11 +359,61 @@ footer {
 @media (max-width: 640px) {
   .nav {
     flex-direction: column;
+    align-items: flex-start;
   }
 
+  /* スマホ: ロゴの改行を無効化 */
+  .logo br {
+    display: none;
+  }
+
+  /* スマホ: 英語表記を非表示 */
+  .logo-en {
+    display: none;
+  }
+
+  /* スマホ: ナビゲーションリンクの英語表記を非表示 */
+  .nav-en {
+    display: none;
+  }
+
+  /* スマホ: ナビゲーションリンクを横並びで表示（幅を超える場合は改行） */
   .nav-links {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    margin-top: 16px;
+  }
+
+  .nav-links a {
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* スマホ: 言語切り替えボタンのテキストを短縮 */
+  .lang-toggle-btn {
+    position: relative;
+    font-size: 0 !important;
+    line-height: 1;
+    text-indent: -9999px;
+    overflow: visible;
+  }
+
+  .lang-toggle-btn::after {
+    content: attr(data-short);
+    font-size: 0.875rem;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    text-indent: 0;
+    font-weight: 500;
   }
 
   .hero-card,
